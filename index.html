@@ -7,7 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Справочник для программиста</title>
   <link href="css/style.min.css" rel="stylesheet">
+  <link href="css/materia.min.css" rel="stylesheet">
   <script src="js/main.min.js" defer></script>
+  <script src="js/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 
 <body>
@@ -67,7 +70,8 @@
           </li>
           <li>
             <ul class="menu-list__items">
-              <li><a href="#">Promise</a></li>
+              <li><a href="#">Promise</a>
+              </li>
               <li><a href="#">ООП</a></li>
             </ul>
           </li>
@@ -96,9 +100,69 @@
       </aside>
 
       <section class="content">
-        <div class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam sit magnam accusamus ab cum unde
-          perspiciatis dicta ipsa corporis, facilis laborum necessitatibus culpa fugit aliquam facere. Deleniti mollitia
-          possimus officia.lo</div>
+
+        <div class="content-item">
+          <a href="htmlcss.html#var">
+            <h2>Переменные SCSS</h2>
+          </a>
+          <p>$black: #000000;
+            $grey: #4c4c4c;
+          </p>
+          <p>p {
+            color: $white;
+            }</p>
+          <div class="content-item__code">
+
+            <div class="file-name">
+              <button class="active">index.js</button>
+              <button>index.html</button>
+            </div>
+            <pre><code class="language-javascript">function makeRequest(url) { //делаем запрс на сайт на конкретную страницу и возвращаем результат парсинга одной страницы
+  return axios.get(url)
+    .then(response => {
+      let currentPage = response.data; // Запись полученного результата
+      const dom = new JSDOM(currentPage); // Инициализация библиотеки jsdom для разбора полученных HTML-данных, как в браузере
+      // Определение количества ссылок на странице, потому что оно у них не всегда фиксированное. Это значение понадобится в цикле ниже
+      let linksLength = dom.window.document.getElementsByClassName('itemRow').length;
+      console.log(linksLength); //кол-во товара на странице
+      console.log(`Запрос статей по ссылке: ${url}`); // Уведомление о получившейся ссылке
+
+      // Перебор и запись всех статей на выбранной странице
+      for (let i = 0; i < linksLength; i++) {
+        // Получение относительных ссылок на статьи (так в оригинале)
+        let relLink = dom.window.document.getElementsByClassName('itemRow')[i]; //единица товара
+        let name = relLink.children[1].getElementsByClassName('name')[0].textContent; //название единицы товара
+        let price = relLink.children[4].getElementsByClassName('custom_prices_box__price_value')[0].textContent.replace(/\s/g, ''); //цена единицы товара
+        let stock = relLink.children[7].getElementsByClassName('changeAvailable')[0].textContent; //в наличии товара
+        let itemLink = relLink.children[1].getElementsByClassName('name')[0].getAttribute('href'); //ссылка на единицу товара
+        let article = `${name} ${price} ${stock} https://...ru${itemLink}`
+        console.log(article);
+        // Запись результата в файл
+        fs.appendFileSync('articles.html', `${article}<br>`, (err) => {
+          if (err) throw err;
+        });
+      };
+      // if (page > pagesNumber) {
+      //   console.log('Парсинг завершён.')
+      // }; // Уведомление об окончании работы парсера
+
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      throw error;
+    });
+}</code></pre>
+          </div>
+          <div class="content-item__code">
+            <pre><code>сверху
+  без отступов
+снизу</code></pre>
+          </div>
+          <p>p {
+            color: $white;
+            }</p>
+        </div>
+
       </section>
 
     </div>
@@ -106,25 +170,33 @@
 </main>
 
 
+
 <footer class="footer">
+
 
 
   <div class="container">
 
 
+
     <div class="footer-rights">
+
 
 
       <p>© 2024</p>
 
 
+
       <a href="https://help-parts.ru">help-parts.ru</a>
+
 
 
     </div>
 
 
+
   </div>
+
 
 
 </footer>
@@ -133,7 +205,11 @@
 
 
 
+
+
 </body>
+
+
 
 
 
