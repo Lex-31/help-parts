@@ -54,9 +54,9 @@
   <div class="container">
     <div class="crumbs">
       <img src="../images/right-arrow.svg" alt="Right arrow">
-      <!-- <p class="crumbs__title"><a href="#">CSS</a></p>
+      <p class="crumbs__title"><a href="c.html">C</a></p>
       <img src="../images/right-arrow.svg" alt="Right arrow">
-      <p class="crumbs__title">Flex</p> -->
+      <p class="crumbs__title">Makefile</p>
     </div>
 
     <div class="wrapper">
@@ -156,29 +156,37 @@
         <div class="content-item">
           <a href="make.html">
             <h2>Makefile</h2>
-
-            <div class="content-item__code">
-              Makefile — это специальный файл, используемый утилитой make для автоматизации сборки
-              программ. Он содержит
-              правила и инструкции, которые описывают, как собирать, компилировать и связывать программы.
-              Makefile
-              помогает автоматизировать процесс сборки, избавляя разработчика от необходимости вручную
-              выполнять команды
-              компиляции и управления зависимостями.
-            </div>
           </a>
-        </div>
 
-        <div class="content-item">
-          <a href="wsl.html">
-            <h2>WSL (Windows Subsystem for Linux)</h2>
+          <p>Makefile — это специальный файл, используемый утилитой make для автоматизации сборки программ. Он содержит
+            правила и инструкции, которые описывают, как собирать, компилировать и связывать программы. Makefile
+            помогает автоматизировать процесс сборки, избавляя разработчика от необходимости вручную выполнять команды
+            компиляции и управления зависимостями.</p>
 
-            <div class="content-item__code">
-              Подсистема Windows для Linux (WSL) — это функция Windows, которая позволяет запускать среду
-              Linux на
-              компьютере Windows без необходимости отдельной виртуальной машины или двойной загрузки.
+          <p>123</p>
+
+          <div class="content-item__code">
+            <div class="file-name">
+              <button class="active">Makefile</button>
             </div>
-          </a>
+            <pre><code data-ln-start-from="1" class="language-makefile">CC = gcc
+CFLAGS = -Wall -g
+
+all: my_program
+
+my_program: main.o utils.o
+    $(CC) $(CFLAGS) -o my_program main.o utils.o
+
+main.o: main.c
+    $(CC) $(CFLAGS) -c main.c
+
+utils.o: utils.c
+    $(CC) $(CFLAGS) -c utils.c
+
+clean:
+    rm -f *.o my_program</code></pre>
+          </div>
+
         </div>
 
       </section>

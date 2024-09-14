@@ -10,7 +10,14 @@
   <link href="css/materia.min.css" rel="stylesheet">
   <script src="js/main.min.js" defer></script>
   <script src="js/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script src="js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+      // singleLine: true, //включить плагин для блока кода с одной строкой(default - false)
+      // startFrom: 10,
+    });
+  </script>
 </head>
 
 <body>
@@ -27,6 +34,7 @@
 
         <ul class="header-list">
           <li><a class="header-item" href="index.html">Главная</a></li>
+          <li><a class="header-item" href="windows.html">Windows</a></li>
           <li><a class="header-item" href="htmlcss.html">HTML+CSS</a></li>
           <li><a class="header-item" href="js.html">JAVASCRIPT</a></li>
           <li><a class="header-item" href="php.html">PHP</a></li>
@@ -42,7 +50,7 @@
 
   </header>
 
-<main>Main</main>
+<main>Error 404</main>
 
 <footer class="footer">
 

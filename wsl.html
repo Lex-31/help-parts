@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Справочник для программиста</title>
+  <link href="css/style.min.css" rel="stylesheet">
+  <link href="css/materia.min.css" rel="stylesheet">
+  <script src="js/main.min.js" defer></script>
+  <script src="js/highlight.min.js"></script>
+  <script src="js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad({
+      // singleLine: true, //включить плагин для блока кода с одной строкой(default - false)
+      // startFrom: 10,
+    });
+  </script>
+</head>
+
+<body>
+
+  <header class="header">
+
+    <div class="header-img">
+      <h1 class="header-title">Справочник для программиста</h1>
+    </div>
+
+    <div class="container">
+
+      <nav class="header-menu">
+
+        <ul class="header-list">
+          <li><a class="header-item" href="index.html">Главная</a></li>
+          <li><a class="header-item" href="windows.html">Windows</a></li>
+          <li><a class="header-item" href="htmlcss.html">HTML+CSS</a></li>
+          <li><a class="header-item" href="js.html">JAVASCRIPT</a></li>
+          <li><a class="header-item" href="php.html">PHP</a></li>
+          <li><a class="header-item" href="c.html">C</a></li>
+        </ul>
+        <div class="header-search">
+          <input type="text">
+          <img src="#" alt="Search">
+        </div>
+      </nav>
+
+    </div>
+
+  </header>
+
+<main>
+  <div class="container">
+    <div class="crumbs">
+      <img src="../images/right-arrow.svg" alt="Right arrow">
+      <p class="crumbs__title"><a href="windows.html">Windows</a></p>
+      <img src="../images/right-arrow.svg" alt="Right arrow">
+      <p class="crumbs__title">WSL</p>
+    </div>
+
+    <div class="wrapper">
+
+      <aside class="menu">
+
+        <ul class="menu-list">
+
+          <li>
+
+            <a href="windows.html">Windows</a>
+
+          </li>
+
+          <li>
+
+            <ul class="menu-list__items">
+
+              <li><a href="wsl.html">WSL</a></li>
+
+            </ul>
+
+          </li>
+
+      
+
+          <li>
+
+            <a href="js.html">JAVASCRIPT</a>
+
+          </li>
+
+          <li>
+
+            <ul class="menu-list__items">
+
+              <li><a href="#">Promise</a>
+
+              </li>
+
+              <li><a href="#">ООП</a></li>
+
+            </ul>
+
+          </li>
+
+      
+
+          <li>
+
+            <a href="php.html">PHP</a>
+
+          </li>
+
+          <li>
+
+            <ul class="menu-list__items">
+
+              <li><a href="#">Type Hinting</a></li>
+
+              <li><a href="#">ООП</a></li>
+
+            </ul>
+
+          </li>
+
+      
+
+          <li>
+
+            <a href="c.html">C</a>
+
+          </li>
+
+          <li>
+
+            <ul class="menu-list__items">
+
+              <li><a href="make.html">Makefile</a></li>
+
+              <li><a href="#">Указатели</a></li>
+
+              <li><a href="#">Динамическая память</a></li>
+
+              <li><a href="#">Связные списки</a></li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+      </aside>
+
+      <section class="content">
+
+        <div class="content-item">
+          <a href="wsl.html">
+            <h2>WSL (Windows Subsystem for Linux)</h2>
+          </a>
+
+          <p>Подсистема Windows для Linux (WSL) — это функция Windows, которая позволяет запускать среду Linux на
+            компьютере Windows без необходимости отдельной виртуальной машины или двойной загрузки.</p>
+
+          <p>Установка WSL производится с помощью PowerShell или из Microsoft Store.</p>
+
+          <div class="content-item__code">
+            <div class="file-name">
+              <button class="active">PowerShell</button>
+            </div>
+            <pre><code data-ln-start-from="1" class="language-bash">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart    # включение WSL (для сборок Windows 10 до 19041)
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart    # включение функции виртуальной машины для WSL (для сборок Windows 10 до 19041)
+wsl --install    # установка WSL с предустановленным образом Ubuntu
+wsl --install --no-distribution    # чтобы установить WSL без предустановленного дистрибутива Linux</code></pre>
+          </div>
+
+          <p>Так же возможно установить WSL следующим методом:<br>
+            Панель управления —> Программы —> Включение или отключение компонентов Windows:<br>
+            —> включить компонент «Подсистема Windows для Linux»
+          </p>
+
+          <p>Затем необходимо установить нужный дистрибутив Linux:</p>
+
+          <div class="content-item__code">
+            <div class="file-name">
+              <button class="active">PowerShell</button>
+            </div>
+            <pre><code data-ln-start-from="1" class="language-bash">wsl --set-default-version 2    # установить вторую версию WSL по умолчанию для всех новых дистрибутивов Linux 
+wsl --install -d Ubuntu-24.04    # установить подходящий дистрибутив Linux</code></pre>
+          </div>
+
+          <p>Справочная информация для удобного использования WSL:</p>
+
+          <div class="content-item__code">
+            <div class="file-name">
+              <button class="active">PowerShell</button>
+            </div>
+            <pre><code data-ln-start-from="1" class="language-bash">wsl.exe --update    # обновляет ядро Linux в WSL 2 (только для 2 версии работает) до последней версии
+wsl --status    # просмотр общей информации о конфигурации WSL
+wsl -l -o    # (wsl --list --online) просмотр доступных дистрибутивов Linux в Microsoft Store
+wsl -l -v    # (wsl --list --verbose)просмотр всех установленных дистрибутивов, запущен или остановлен дистрибутив и версию WSL 1 или WSL 2
+wsl --set-version Ubuntu-24.04 2    # переключить WSL на версию 2 для образа Ubuntu-24.04
+wsl --shutdown    # завершить работу всех запущенных дистрибутивов Linux и остановить виртуальную машину, которая используется для работы WSL
+wsl --distribution Ubuntu-24.04 --user root    # запустить дистрибутив Ubuntu-24.04 от пользователя root
+wsl --unregister    # удалить дистрибутив из WSL и удалить все данные, связанные с этим дистрибутивом Linux
+
+# Не рекомендуется работать с файлами одной ОС из другой ОС, из за проблем с правами доступа к файлам и директориям
+cd /mnt/d/src    # cмотрим из Linux в Windows
+\\wsl$\Ubuntu-24.04\home    # смотрим из Windows в Linux</code></pre>
+          </div>
+
+          <p>Путь в Windows, чтобы использовать каталог файловой системы Linux
+            &quot;<code>\home\&lt;UserName&gt;\Project</code>&quot;:<br>
+            <code>\\wsl$\&lt;DistroName&gt;\home\&lt;UserName&gt;\Project</code><br>
+          </p>
+          <p>Путь в Linux, чтобы использовать каталог файловой системы Windows
+            &quot;<code>C:\Users\&lt;UserName&gt;\Project</code>&quot;:<br>
+            <code>/mnt/c/Users/&lt;UserName&gt;/Project</code><br>
+          </p>
+          <p>Узнать версию и сборку Windows:
+            Win + R, в окне &quot;Выполнить&quot; ввести &quot;<code>winver</code>&quot;
+          </p>
+
+          <p>wsl – команда для работы из командной строки Windows или PowerShell</p>
+          <p>wsl.exe – команда для работы из командной строки типа Bash</p>
+
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+</main>
+
+
+
+<footer class="footer">
+
+
+
+  <div class="container">
+
+
+
+    <div class="footer-rights">
+
+
+
+      <p>© 2024</p>
+
+
+
+      <a href="https://help-parts.ru">help-parts.ru</a>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</footer>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
